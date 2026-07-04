@@ -3,34 +3,34 @@
 #include "cadastrov.h"
 
 Veiculo cadastrov(){
-    Veiculo carro;
+    Veiculo veiculo;
 
     printf("Digite a marca do carro: ");
-        fgets(carro.marca, 50, stdin);
+        fgets(veiculo.marca, 50, stdin);
 
     printf("Digite o modelo do carro: ");
-        fgets(carro.modelo, 50, stdin);
+        fgets(veiculo.modelo, 50, stdin);
 
     printf("Digite o ano do carro: ");
-        scanf("%d", &carro.ano);
+        scanf("%d", &veiculo.ano);
         getchar(); 
 
     printf("Digite o valor de mercado do carro: ");
-        scanf("%f", &carro.valor_mercado);
+        scanf("%f", &veiculo.valor_mercado);
         getchar(); 
     
      do {
         printf("Tipo do carro (P) Passeio (U) Utilitario (E) Esportivo: ");
-        scanf(" %c", &carro.tipo);
+        scanf(" %c", &veiculo.tipo);
 
-        carro.tipo = toupper(carro.tipo);
+        veiculo.tipo = toupper(veiculo.tipo);
 
-        if (carro.tipo != 'P' && carro.tipo != 'U' && carro.tipo != 'E') {
+        if (veiculo.tipo != 'P' && veiculo.tipo != 'U' && veiculo.tipo != 'E') {
             printf("Tipo invalido! Tente novamente.\n");
         }
 
-    } while (carro.tipo != 'P' && carro.tipo != 'U' && carro.tipo != 'E');
+    } while (veiculo.tipo != 'P' && veiculo.tipo != 'U' && veiculo.tipo != 'E');
 
-    return carro;
+    return veiculo;
  
 }
