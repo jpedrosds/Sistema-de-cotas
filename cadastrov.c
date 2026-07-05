@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 #include "cadastrov.h"
 
 Veiculo cadastrov(){
@@ -7,17 +8,21 @@ Veiculo cadastrov(){
 
     printf("Digite a marca do carro: ");
         fgets(veiculo.marca, 50, stdin);
+        veiculo.marca[strcspn(veiculo.marca, "\n")] = '\0';
 
     printf("Digite o modelo do carro: ");
         fgets(veiculo.modelo, 50, stdin);
+        veiculo.modelo[strcspn(veiculo.modelo, "\n")] = '\0';
 
     printf("Digite o ano do carro: ");
         scanf("%d", &veiculo.ano);
-        getchar(); 
+        while (getchar() != '\n');
+
 
     printf("Digite o valor de mercado do carro: ");
         scanf("%f", &veiculo.valor_mercado);
-        getchar(); 
+        while (getchar() != '\n');
+
     
      do {
         printf("Tipo do carro (P) Passeio (U) Utilitario (E) Esportivo: ");
