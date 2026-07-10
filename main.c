@@ -15,9 +15,11 @@ int main() {
         printf("\n====================================\n");
         printf("        MENU PRINCIPAL\n");
         printf("====================================\n");
-        printf("1 - Cadastrar Veiculo\n");
-        printf("2 - Cadastrar Condutor\n");
-        printf("3 - Exibir Dados\n");
+        printf("1 - Cadastrar Veiculo na base de dados\n");
+        printf("2 - Cadastrar Condutor na base de dados\n");
+        printf("3 - Exibir base de dados\n");
+        printf("4 - Fazer cálculo de cotação com novo cliente/veículo\n");
+        printf("5 - Fazer cálculo de cotação com cliente/veículo já existente na base de dados\n")
         printf("0 - Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
@@ -62,7 +64,15 @@ int main() {
                 }
 
                 break;
-
+            
+            case 4:
+                printf("-----NOVO CÁLCULO DE COTAÇÃO-----\n");
+                break;
+            
+            case 5:
+                printf("-----CÁLCULO DE COTAÇÃO COM DADOS EXISTENTES----\n");
+                break;
+            
             case 0:
                 printf("\nEncerrando o programa...\n");
                 break;
