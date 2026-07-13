@@ -27,6 +27,9 @@ Condutor cadastrop() {
 
     printf("Digite o número de sinistros do condutor: ");
         scanf("%d", &condutor.sinistros);
+        if (condutor.sinistros > 3){
+            condutor.sinistros = 3;
+        }
         while (getchar() != '\n');
 
     do {
