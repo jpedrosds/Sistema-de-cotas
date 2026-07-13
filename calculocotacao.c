@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "calculocotacao.h"
 
 //Dados obtidos até agora (condutor): nome, idade, rg, número de sinistros e categoria da CNH

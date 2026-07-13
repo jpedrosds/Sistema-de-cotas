@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "cadastrov.h"
 #include "cadastrop.h"
+#include "calculocotacao.h"
 
 int main() {
 
@@ -19,7 +20,7 @@ int main() {
         printf("2 - Cadastrar Condutor na base de dados\n");
         printf("3 - Exibir base de dados\n");
         printf("4 - Fazer cálculo de cotação com novo cliente/veículo\n");
-        printf("5 - Fazer cálculo de cotação com cliente/veículo já existente na base de dados\n")
+        printf("5 - Fazer cálculo de cotação com cliente/veículo já existente na base de dados\n");
         printf("0 - Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
