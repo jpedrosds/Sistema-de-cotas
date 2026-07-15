@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "cadastrov.h"
 #include "cadastrop.h"
 #include "calculocotacao.h"
 #include "relatorio.h"
+#include "arquivo.h"
 
 int main() {
 
@@ -12,8 +14,16 @@ int main() {
     int opcao;
     int veiculoCadastrado = 0;
     int condutorCadastrado = 0;
-    Cotacao cotacoes[100];
-    int totalCotacoes = 0;
+    Cotacao *cotacoes;
+int totalCotacoes = 0;
+
+cotacoes = carregarCotacoes("cotacoes.dat", &totalCotacoes);
+
+if(cotacoes == NULL){
+    cotacoes = malloc(sizeof(Cotacao) * 100);
+    totalCotacoes = 0;
+}
+
 
     do {
         printf("\n====================================\n");
@@ -83,6 +93,8 @@ int main() {
 
     totalCotacoes++;
 
+    salvarCotacoes("cotacoes.dat", cotacoes, totalCotacoes);
+
     break;
             
             
@@ -136,6 +148,8 @@ int main() {
         }
 
     } while (opcao != 0);
+
+    free(cotacoes);
 
     return 0;
 }
