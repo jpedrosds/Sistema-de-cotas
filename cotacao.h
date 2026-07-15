@@ -11,7 +11,7 @@ typedef struct {
     char     data[11];    /* formato DD/MM/AAAA */
   } Cotacao;
 
-Cotacao calculocotacao(Veiculo v, Condutor c);
+Cotacao calculocotacao(Veiculo *v, Condutor *c);
 //Agora, a struct "Cotacao" conseguirá receber os valores das variáveis de outros arquivos. 
 
 #endif
