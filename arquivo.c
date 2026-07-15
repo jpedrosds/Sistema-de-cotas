@@ -4,7 +4,6 @@
 #include "arquivo.h"
 
 
-// ================= VEICULO =================
 
 void salvarVeiculo(char nomeArquivo[], Veiculo *veiculo){
 
@@ -52,8 +51,6 @@ Veiculo carregarVeiculo(char nomeArquivo[], int *existe){
 }
 
 
-
-// ================= CONDUTOR =================
 
 void salvarCondutor(char nomeArquivo[], Condutor *condutor){
 
@@ -111,9 +108,6 @@ Condutor carregarCondutor(char nomeArquivo[], int *existe){
 
 
 
-// ================= COTAÇÕES =================
-
-
 int salvarCotacoes(const char *nomeArquivo, Cotacao cotacoes[], int total)
 {
 
@@ -129,13 +123,9 @@ int salvarCotacoes(const char *nomeArquivo, Cotacao cotacoes[], int total)
     }
 
 
-
-    // Salva a quantidade de cotações primeiro
     fwrite(&total, sizeof(int), 1, arquivo);
 
 
-
-    // Salva as cotações
     fwrite(cotacoes, sizeof(Cotacao), total, arquivo);
 
 
@@ -170,7 +160,6 @@ Cotacao *carregarCotacoes(const char *nomeArquivo, int *total)
 
 
 
-    // Lê quantidade de cotações salvas
 
     fread(total, sizeof(int), 1, arquivo);
 
@@ -195,7 +184,6 @@ Cotacao *carregarCotacoes(const char *nomeArquivo, int *total)
 
 
 
-    // Lê as cotações
 
     fread(cotacoes, sizeof(Cotacao), *total, arquivo);
 
