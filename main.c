@@ -11,6 +11,10 @@ int main() {
     Veiculo veiculo;
     Condutor condutor;
 
+    int totalCotacoes = 0;
+    // Carrega as cotações salvas anteriormente (se existirem)
+    Cotacao *cotacoes = carregarCotacoes("cotacoes.dat", &totalCotacoes);
+    
     int opcao;
     int veiculoCadastrado = 0;
     int condutorCadastrado = 0;
@@ -107,6 +111,23 @@ veiculo = carregarVeiculo("veiculo.dat", &existeVeiculo);
 
     cotacoes[totalCotacoes] = calculocotacao(&veiculo, &condutor);
 
+    // 2. Realoca memória para caber mais uma cotação (Aumenta o tamanho em +1)
+    Cotacao *temp = realloc(cotacoes, sizeof(Cotacao) * (totalCotacoes + 1));
+    if (temp == NULL) {
+        printf("Erro crítico: Nao foi possivel alocar memoria para salvar a cotacao!\n");
+    } else {
+        cotacoes = temp;
+        cotacoes[totalCotacoes] = nova; // Adiciona a nova cotação no final do vetor
+        totalCotacoes++;
+    
+        // 3. Salva a lista inteira atualizada de volta no arquivo
+        if (salvarCotacoes("cotacoes.dat", cotacoes, totalCotacoes)) {
+            printf("\nCotacao realizada e salva em disco com sucesso!\n");
+        } else {
+            printf("\nErro ao salvar a cotacao no arquivo.\n");
+        }
+    }
+
     printf("\n===== COTACAO REALIZADA =====\n");
     printf("Premio anual : R$ %.2f\n", cotacoes[totalCotacoes].premio_anual);
     printf("Premio mensal: R$ %.2f\n", cotacoes[totalCotacoes].premio_mensal);
@@ -160,6 +181,12 @@ veiculo = carregarVeiculo("veiculo.dat", &existeVeiculo);
     
             
             case 0:
+        
+                printf("Encerrando o programa...\n");
+                if (cotacoes != NULL) {
+                    free(cotacoes); // Libera a memória alocada dinamicamente antes de fechar!
+                }
+                break;
                 printf("\nEncerrando o programa...\n");
                 break;
 
