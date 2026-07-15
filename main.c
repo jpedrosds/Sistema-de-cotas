@@ -14,6 +14,8 @@ int main() {
     int opcao;
     int veiculoCadastrado = 0;
     int condutorCadastrado = 0;
+    int existeVeiculo = 0;
+    int existeCondutor = 0;
     Cotacao *cotacoes;
     int totalCotacoes = 0;
     int opRelatorio;
@@ -24,6 +26,12 @@ if(cotacoes == NULL){
     cotacoes = malloc(sizeof(Cotacao) * 100);
     totalCotacoes = 0;
 }
+veiculo = carregarVeiculo("veiculo.dat", &existeVeiculo);
+    condutor = carregarCondutor("condutor.dat", &existeCondutor);
+
+    veiculoCadastrado = existeVeiculo;
+    condutorCadastrado = existeCondutor;
+
 
 
     do {
@@ -45,11 +53,22 @@ if(cotacoes == NULL){
             case 1:
                 veiculo = cadastrov();
                 veiculoCadastrado = 1;
+
+                 salvarVeiculo("veiculo.dat", &veiculo);
+
+                printf("\nVeiculo salvo com sucesso!\n");
+
+
                 break;
 
             case 2:
                 condutor = cadastrop();
                 condutorCadastrado = 1;
+
+                salvarCondutor("condutor.dat", &condutor);
+
+                printf("\nCondutor salvo com sucesso!\n");
+                
                 break;
 
             case 3:
