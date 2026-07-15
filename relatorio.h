@@ -1,6 +1,6 @@
 #ifndef RELATORIO_H
 #define RELATORIO_H
-#include "calculocotacao.h"
+#include "cotacao.h"
 
 void listarCotacoes(Cotacao cotacoes[], int total);
 
