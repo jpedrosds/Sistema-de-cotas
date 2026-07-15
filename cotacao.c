@@ -35,7 +35,16 @@ Cotacao calculocotacao(Veiculo *v, Condutor *c) {
         acrescimos += 1.0;
     }
 
-    int num_sinistros = (c->sinistros > 3) ? 3 : c->sinistros;
+    // 3. Sinistros (limitado ao máximo de 3, conforme a regra de negócio)
+    int num_sinistros;
+
+    if (c->sinistros > 3) {
+        num_sinistros = 3;
+    } else {
+        num_sinistros = c->sinistros;
+    }
+
+    // Aplica o acréscimo de 1.5% para cada sinistro contabilizado
     acrescimos += (num_sinistros * 1.5);
 
     // --- CÁLCULO FINAL DAS TAXAS ---
