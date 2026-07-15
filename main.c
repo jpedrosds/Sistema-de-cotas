@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "cadastrov.h"
 #include "cadastrop.h"
-#include "calculocotacao.h"
+#include "cotacao.h"
 #include "relatorio.h"
 #include "arquivo.h"
 
