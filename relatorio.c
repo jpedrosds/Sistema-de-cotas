@@ -2,7 +2,7 @@
 #include <string.h>
 #include "cadastrov.h"
 #include "cadastrop.h"
-#include "calculocotacao.h"
+#include "cotacao.h"
 #include "relatorio.h"
 
 // Função que lista todas as cotações cadastradas
