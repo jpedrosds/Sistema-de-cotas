@@ -15,7 +15,8 @@ int main() {
     int veiculoCadastrado = 0;
     int condutorCadastrado = 0;
     Cotacao *cotacoes;
-int totalCotacoes = 0;
+    int totalCotacoes = 0;
+    int opRelatorio;
 
 cotacoes = carregarCotacoes("cotacoes.dat", &totalCotacoes);
 
@@ -99,7 +100,7 @@ if(cotacoes == NULL){
             
             
             case 5:
-                  int opRelatorio;
+                  
 
     do{
 
