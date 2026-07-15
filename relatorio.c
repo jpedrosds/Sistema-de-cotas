@@ -24,7 +24,7 @@ void listarCotacoes(Cotacao cotacoes[], int total){
 
         // Exibe os dados do condutor
         printf("Condutor: %s\n", cotacoes[i].condutor.nome);
-        printf("RG: %d\n", cotacoes[i].condutor.rg);
+        printf("RG: %s\n", cotacoes[i].condutor.rg);
 
         // Exibe os dados do veículo
         printf("Veículo: %s %s", cotacoes[i].veiculo.marca, cotacoes[i].veiculo.modelo);
@@ -65,7 +65,7 @@ void buscarPorNome(Cotacao cotacoes[], int total){
 
             // Exibe os dados da cotação encontrada
             printf("Nome: %s\n", cotacoes[i].condutor.nome);
-            printf("RG: %d\n", cotacoes[i].condutor.rg);
+            printf("RG: %s\n", cotacoes[i].condutor.rg);
             printf("Veiculos: %s %s\n", cotacoes[i].veiculo.marca, cotacoes[i].veiculo.modelo);
             printf("Prêmio: R$ %.2f\n", cotacoes[i].premio_anual);
 

@@ -1,22 +1,29 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11
 
-OBJ = main.o cadastrov.o cadastrop.o calculocotacao.o
+OBJ = main.o \
+      cadastrop.o \
+      cadastrov.o \
+      calculocotacao.o \
+      relatorio.o
 
 programa: $(OBJ)
 	$(CC) $(CFLAGS) -o programa $(OBJ)
 
-main.o: main.c cadastrov.h cadastrop.h calculocotacao.h
+main.o: main.c cadastrop.h cadastrov.h calculocotacao.h relatorio.h
 	$(CC) $(CFLAGS) -c main.c
-
-cadastrov.o: cadastrov.c cadastrov.h
-	$(CC) $(CFLAGS) -c cadastrov.c
 
 cadastrop.o: cadastrop.c cadastrop.h
 	$(CC) $(CFLAGS) -c cadastrop.c
 
-calculocotacao.o: calculocotacao.c calculocotacao.h cadastrov.h cadastrop.h
+cadastrov.o: cadastrov.c cadastrov.h
+	$(CC) $(CFLAGS) -c cadastrov.c
+
+calculocotacao.o: calculocotacao.c calculocotacao.h
 	$(CC) $(CFLAGS) -c calculocotacao.c
+
+relatorio.o: relatorio.c relatorio.h
+	$(CC) $(CFLAGS) -c relatorio.c
 
 clean:
 	rm -f *.o programa

@@ -2,6 +2,7 @@
 #include "cadastrov.h"
 #include "cadastrop.h"
 #include "calculocotacao.h"
+#include "relatorio.h"
 
 int main() {
 
@@ -11,6 +12,8 @@ int main() {
     int opcao;
     int veiculoCadastrado = 0;
     int condutorCadastrado = 0;
+    Cotacao cotacoes[100];
+    int totalCotacoes = 0;
 
     do {
         printf("\n====================================\n");
@@ -19,8 +22,8 @@ int main() {
         printf("1 - Cadastrar Veiculo na base de dados\n");
         printf("2 - Cadastrar Condutor na base de dados\n");
         printf("3 - Exibir base de dados\n");
-        printf("4 - Fazer cálculo de cotação com novo cliente/veículo\n");
-        printf("5 - Fazer cálculo de cotação com cliente/veículo já existente na base de dados\n");
+        printf("4 - Fazer cálculo de cotação com cliente/veículo\n");
+        printf("5 - Relatórios\n");
         printf("0 - Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
@@ -67,12 +70,62 @@ int main() {
                 break;
             
             case 4:
-                printf("-----NOVO CÁLCULO DE COTAÇÃO-----\n");
-                break;
+                 if (!veiculoCadastrado || !condutorCadastrado){
+        printf("\nCadastre primeiro um veiculo e um condutor.\n");
+        break;
+    }
+
+    cotacoes[totalCotacoes] = calculocotacao(veiculo, condutor);
+
+    printf("\n===== COTACAO REALIZADA =====\n");
+    printf("Premio anual : R$ %.2f\n", cotacoes[totalCotacoes].premio_anual);
+    printf("Premio mensal: R$ %.2f\n", cotacoes[totalCotacoes].premio_mensal);
+
+    totalCotacoes++;
+
+    break;
+            
             
             case 5:
-                printf("-----CÁLCULO DE COTAÇÃO COM DADOS EXISTENTES----\n");
+                  int opRelatorio;
+
+    do{
+
+        printf("\n=========== RELATORIOS ===========\n");
+        printf("1 - Listar todas as cotacoes\n");
+        printf("2 - Buscar cotacao pelo nome\n");
+        printf("3 - Mostrar menor cotacao\n");
+        printf("0 - Voltar\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opRelatorio);
+
+        while(getchar() != '\n');
+
+        switch(opRelatorio){
+
+            case 1:
+                listarCotacoes(cotacoes, totalCotacoes);
                 break;
+
+            case 2:
+                buscarPorNome(cotacoes, totalCotacoes);
+                break;
+
+            case 3:
+                menorCotacao(cotacoes, totalCotacoes);
+                break;
+             case 0:
+                printf("\nVoltando ao menu principal...\n");
+                break;
+
+            default:
+                printf("\nOpcao invalida!\n");
+        }
+
+    }while(opRelatorio != 0);
+
+    break;
+    
             
             case 0:
                 printf("\nEncerrando o programa...\n");
