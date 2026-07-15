@@ -85,7 +85,7 @@ if(cotacoes == NULL){
         break;
     }
 
-    cotacoes[totalCotacoes] = calculocotacao(veiculo, condutor);
+    cotacoes[totalCotacoes] = calculocotacao(&veiculo, &condutor);
 
     printf("\n===== COTACAO REALIZADA =====\n");
     printf("Premio anual : R$ %.2f\n", cotacoes[totalCotacoes].premio_anual);
